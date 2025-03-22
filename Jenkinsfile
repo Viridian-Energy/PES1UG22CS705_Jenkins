@@ -7,8 +7,19 @@ pipeline {
                 git 'https://github.com/Viridian-Energy/PES1UG22CS705_Jenkins.git'
             }
         }
-        stage('Build') {steps {sh 'make -C main'}}
+        stage('Build') {
+            steps {
+                sh 'make -C main'
+            }
+        }
     }
     
-    post {success {echo 'Pipeline executed successfully'} failure {echo 'Pipeline failed. Check logs for details'}}
+    post {
+        success {
+            echo 'Pipeline executed successfully'
+        } 
+        failure {
+            echo 'Pipeline failed. Check logs for details'
+        }
+    }
 }
