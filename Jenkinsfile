@@ -4,8 +4,9 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 checkout([$class: 'GitSCM',
-                branches: [[name: '*/main']],
-                userRemoteConfigs: [[url: 'https://github.com/Viridian-Energy/PES1UG22CS705_Jenkins.git']]])
+                          branches: [[name: '*/main']],
+                          userRemoteConfigs: [[url: 'https://github.com/Viridian-Energy/PES1UG22CS705_Jenkins.git']],
+                          extensions: [[$class: 'CleanCheckout']]])
             }
         }
         stage('Build') {
